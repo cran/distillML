@@ -2,7 +2,7 @@ Package: distillML
 Type: Package
 Title: Model Distillation and Interpretability Methods for Machine
         Learning Models
-Version: 0.1.0.9
+Version: 0.1.0.13
 Authors@R: c(
     person("Brian", "Cho", role = "aut"),
     person("Theo", "Saarinen", role = c("aut","cre"), email = "theo_s@berkeley.edu"),
@@ -18,17 +18,17 @@ Description: Provides several methods for model distillation and interpretabilit
     Brian Cho, Theo F. Saarinen, Jasjeet S. Sekhon, Simon Walter.
 License: GPL (>= 3)
 Encoding: UTF-8
-Imports: ggplot2, glmnet, Rforestry, MASS, dplyr, R6 (>= 2.0),
-        checkmate, purrr, tidyr, data.table, mltools, gridExtra
+Imports: ggplot2, glmnet, Rforestry, dplyr, R6 (>= 2.0), checkmate,
+        purrr, tidyr, data.table, mltools, gridExtra
 Suggests: testthat, knitr, rmarkdown, mvtnorm
 Collate: 'predictor.R' 'interpret.R' 'distiller.R' 'plotter.R'
         'surrogate.R'
-RoxygenNote: 7.1.2
+RoxygenNote: 7.2.3
 NeedsCompilation: no
-Packaged: 2022-07-06 00:08:44 UTC; theosaa
+Packaged: 2023-03-24 18:59:47 UTC; theosaa
 Author: Brian Cho [aut],
   Theo Saarinen [aut, cre],
   Jasjeet Sekhon [aut],
   Simon Walter [aut]
 Repository: CRAN
-Date/Publication: 2022-07-07 08:50:06 UTC
+Date/Publication: 2023-03-25 03:30:02 UTC

@@ -171,11 +171,11 @@ predict_ICE.Plotter = function(object,
       for (val in object$grid.points[[index]]) {
         # Get subsampled data, remove y column, set feature
         newdata <- object$predictor$data[object$data.points,]
-        newdata <- newdata[,-which(names(newdata)==object$predictor$y)]
+        newdata <- newdata[-which(names(newdata)==object$predictor$y)]
 
         # necessary fix for factor variables
         if (inherits(val, "character")){
-          newdata[,feature] <- factor(rep(val, nrow(newdata)),
+          newdata[feature] <- factor(rep(val, nrow(newdata)),
                                       levels = levels(object$grid.points[[index]]))
         }
         else{
@@ -958,7 +958,7 @@ plot.Interpreter = function(x,
       # Calculate the accumulated local effects using ale function
       feat_ale <- predict_ALE(x, feature, training_data, save = TRUE)
 
-      # smoothen if desired
+      # smooth if desired
       if (smooth){
         temp.binsize <- max(feat_ale$training_data[, 1]) -
           min(feat_ale$training_data[, 1])
@@ -1003,12 +1003,12 @@ plot.Interpreter = function(x,
       plot_data <-
         bind_rows(rugplot_data, feat_ale$ale %>% mutate(grp = "ale"))
 
-      ggplot(plot_data) + geom_line(data = filter)
+
       plt <-
         ggplot(plot_data) +
         geom_line(data = plot_data %>% filter(grp == "ale"), aes(x = x, y = ale)) +
         geom_rug(data = plot_data %>% filter(grp == "rug"), aes(x = x)) +
-        facet_wrap( ~ variable, scales = "free") + theme_bw() + xlab("")
+        labs(x = feature) + theme_bw()
 
       plots <- append(plots, list(plt))
     }
